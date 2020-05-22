@@ -2,6 +2,7 @@ import { Component, Input, OnInit }  from '@angular/core';
 import { FormGroup }                 from '@angular/forms';
 import { QuestionBase }              from './question-base';
 import { QuestionControlService }    from './question-control.service';
+import { QuestionService }           from './question.service'; 
 
 @Component({
   selector: 'app-dynamic-form',
@@ -22,7 +23,12 @@ export class DynamicFormComponent implements OnInit {
 
   onSubmit() {
     this.payLoad = JSON.stringify(this.form.getRawValue());
-    console.log(this.payLoad);
+      console.log(this.payLoad);
+    this.payLoad.postrequest(this.payLoad)
+      .subscribe(
+        data => console.log('Success!', data),
+        error => console.error('Error!', error)
+      )
     
   }
 }
