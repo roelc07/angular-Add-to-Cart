@@ -41,6 +41,9 @@ button:disabled {
   color: #aaa;
   cursor: auto;
 }
+.maincontainer {
+  text-align: center;
+}
 
 /* Navigation link styles */
 nav a {

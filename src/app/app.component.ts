@@ -7,7 +7,7 @@ import { HttpClient }      from '@angular/common/http';
 @Component({
   selector: 'app-root',
   template: `
-    <div>
+    <div class="maincontainer">
       <h2>Add to Cart Page</h2>
       <app-dynamic-form [questions]="questions$ | async"></app-dynamic-form>
     </div>

@@ -32,7 +32,8 @@ export class QuestionService {
 
       new TextboxQuestion({
         key: 'name',
-        label: 'User Name',
+        label: 'Name',
+        required: 'true',
         order: 2
       }),
 
