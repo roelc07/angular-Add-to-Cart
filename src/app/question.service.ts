@@ -15,7 +15,7 @@ import { of } from "rxjs";
 
 @Injectable()
 export class QuestionService {
-  baseURL: string = "http://localhost:8080/api/cart/addToCart";
+  baseURL: string = "https://amod-tnt-cart-add-service.azurewebsites.net/api/cart/addToCart";
 
   constructor(private http: HttpClient) {}
 
@@ -41,6 +41,7 @@ export class QuestionService {
       new TextboxQuestion({
         key: "name",
         label: "Name",
+        value: "Smita",
         order: 2
       }),
 
@@ -64,9 +65,15 @@ export class QuestionService {
         required: 'true'
       }),
 
-      new TextboxQuestion({
-        key: "productName",
-        label: "Product Name",
+      new DropdownQuestion({
+        key: 'productName',
+        label: 'Product Name',
+        options: [
+          {key: 'pen',  value: 'Pen'},
+          {key: 'paper',  value: 'Paper'},
+          {key: 'marker',   value: 'Marker'},
+          {key: 'book', value: 'Book'}
+        ],
         order: 6
       }),
 
