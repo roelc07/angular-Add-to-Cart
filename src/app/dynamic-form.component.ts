@@ -15,7 +15,7 @@ export class DynamicFormComponent implements OnInit {
   form: FormGroup;
   payLoad = '';
 
-  constructor(private qcs: QuestionControlService) {  }
+  constructor(private qcs: QuestionControlService, private qs: QuestionService) {  }
 
   ngOnInit() {
     this.form = this.qcs.toFormGroup(this.questions);
@@ -23,12 +23,17 @@ export class DynamicFormComponent implements OnInit {
 
   onSubmit() {
     this.payLoad = JSON.stringify(this.form.getRawValue());
+    // this.form.getRawValue()
       console.log(this.payLoad);
-    this.payLoad.postrequest(this.payLoad)
-      .subscribe(
+      this.qs.postrequest(this.payLoad).subscribe(
         data => console.log('Success!', data),
         error => console.error('Error!', error)
       )
+    // this.payLoad.postrequest(this.payLoad)
+    //   .subscribe(
+    //     data => console.log('Success!', data),
+    //     error => console.error('Error!', error)
+    //   )
     
   }
 }
